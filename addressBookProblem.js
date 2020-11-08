@@ -1,4 +1,4 @@
-//UC1
+//UC3
 class Contact{
     constructor(...parameters){
         this.firstName = parameters[0]
@@ -91,4 +91,6 @@ class Contact{
     }
 }
 let contact = new Contact("Bill","Gates","Parkelitevillas","Bangalore","Karnataka","333031","9876504321","bill.gates@microsoft.com")
-console.log(contact)
+let addressBook = new Array();
+addressBook.push(contact)
+console.log(addressBook)
