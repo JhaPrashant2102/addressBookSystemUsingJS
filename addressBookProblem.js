@@ -1,4 +1,4 @@
-//UC3
+//UC1 UC2
 class Contact{
     constructor(...parameters){
         this.firstName = parameters[0]
@@ -91,7 +91,7 @@ class Contact{
     }
 }
 
-let contact1 = new Contact("Bill","Gates","Parkelitevillas","Bangalore","Karnataka","333031","9876504321","bill.gates@microsoft.com")
+let contact1 = new Contact("Billl","Gates","Parkelitevillas","Bangalore","Karnataka","333031","9876504321","bill.gates@microsoft.com")
 let contact2 = new Contact("Jeff","Bezoz","Parkelitefloors","Bangalore","Karnataka","333031","9876504321","jeff.bezoz@microsoft.com")
 
 //UC3
@@ -101,7 +101,10 @@ addressBook.push(contact2)
 console.log(addressBook)
 //UC4
 function searchForContact(contact){
-    return contact.firstName.includes("Bill")
+    return contact.firstName.includes("Billl")
 }
-addressBook.find(searchForContact).firstName = "Billl"
+addressBook.find(searchForContact).firstName = "Bill"
+console.log(addressBook)
+//UC5
+addressBook.pop(addressBook.find(searchForContact))
 console.log(addressBook)
