@@ -108,3 +108,9 @@ console.log(addressBook)
 //UC5
 addressBook.pop(addressBook.find(searchForContact))
 console.log(addressBook)
+//UC6
+addressBook.push(contact1)
+function totalContacts(totalContacts){
+    return ++totalContacts
+}
+console.log("UC6 total number of contacts in address book:"+addressBook.reduce(totalContacts,0))
