@@ -91,7 +91,7 @@ class Contact{
     }
 }
 
-let contact1 = new Contact("Bill","Gates","Parkelitevillas","Bangalore","Karnataka","333031","9876504321","bill.gates@microsoft.com")
+let contact1 = new Contact("Bill","Gates","Parkelitevillas","Mumbai","Maharashtra","333031","9876504321","bill.gates@microsoft.com")
 let contact2 = new Contact("Jeff","Bezoz","Parkelitefloors","Bangalore","Karnataka","333031","9876504321","jeff.bezoz@microsoft.com")
 
 //UC3
@@ -126,7 +126,6 @@ function addContact(contact){
     }else{
         return false;
     }
-
 }
 if(addContact(contact1))
 console.log("UC7: not a duplicate contact:")
@@ -138,3 +137,10 @@ function searchPerson(firstName,city){
     return ((addressBook.find(contact=>contact.firstName==firstName&&contact.city==city))!=undefined)?true:false
 }
 console.log("UC8: does bill stays in bangalore?: "+searchPerson("Bill","Bangalore"))
+//UC9
+addContact(contact2)
+function viewPersonByCity(searchCity){
+    addressBook.filter(contact=>contact.city==searchCity).forEach(contact=>console.log(contact))
+}
+console.log("UC9 view persons in bangalore:")
+viewPersonByCity("Bangalore")
