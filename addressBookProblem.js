@@ -151,3 +151,10 @@ function getCountInCity(city){
     return count
 }
 console.log("UC10 number of person in bangalore:"+getCountInCity("Bangalore"))
+//UC11
+function sortAddressBookByName(){
+   let sortedAddressBook = addressBook.slice().sort((a,b)=>(a.firstName).localeCompare(b.firstName));
+   console.log(sortedAddressBook)
+}
+console.log("sorted address book by person name:")
+sortAddressBookByName()
