@@ -144,3 +144,10 @@ function viewPersonByCity(searchCity){
 }
 console.log("UC9 view persons in bangalore:")
 viewPersonByCity("Bangalore")
+//UC10
+function getCountInCity(city){
+    let count = 0;
+    addressBook.filter(contact=>contact.city==city).forEach(contact=>++count)
+    return count
+}
+console.log("UC10 number of person in bangalore:"+getCountInCity("Bangalore"))
