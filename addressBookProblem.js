@@ -89,10 +89,14 @@ class Contact{
         this._emailId = emailId
         else throw "email ID is incorrect"
     }
+    toString(){
+        return  "first name:"+this.firstName+", Last Name: "+this.lastName + ", Address: "+this.address+", City: "+this.city+", State: "
+        +this.state+", Zip: "+this.zip+", Phone: "+this.phoneNumber+", Email: "+this.emailId;
+    }
 }
 
 let contact1 = new Contact("Bill","Gates","Parkelitevillas","Mumbai","Maharashtra","333031","9876504321","bill.gates@microsoft.com")
-let contact2 = new Contact("Jeff","Bezoz","Parkelitefloors","Bangalore","Karnataka","333031","9876504321","jeff.bezoz@microsoft.com")
+let contact2 = new Contact("Jeff","Bezoz","Parkelitefloors","Bangalore","Karnataka","121002","9876504321","jeff.bezoz@microsoft.com")
 
 //UC3
 let addressBook = new Array();
@@ -152,9 +156,33 @@ function getCountInCity(city){
 }
 console.log("UC10 number of person in bangalore:"+getCountInCity("Bangalore"))
 //UC11
-function sortAddressBookByName(){
-   let sortedAddressBook = addressBook.slice().sort((a,b)=>(a.firstName).localeCompare(b.firstName));
+function sortAddressBookByName(type){
+    let sortedAddressBook = new Array();
+    switch(type){
+        case "name":
+        sortedAddressBook = addressBook.slice().sort((a,b)=>(a.firstName).localeCompare(b.firstName));
+        break;
+        case "city":
+        sortedAddressBook = addressBook.slice().sort((a,b)=>(a.city).localeCompare(b.city));
+        break;
+        case "state":
+        sortedAddressBook = addressBook.slice().sort((a,b)=>(a.state).localeCompare(b.state));
+        break;
+        case "zip":
+        sortedAddressBook = addressBook.slice().sort((a,b)=>(a.zip).localeCompare(b.zip));
+        break;
+        default:
+        break;
+    }
    console.log(sortedAddressBook)
 }
-console.log("sorted address book by person name:")
-sortAddressBookByName()
+console.log("UC11 : sorted address book by person's name:")
+sortAddressBookByName("name")
+//UC12
+console.log("UC11 : sorted address book by person's city:")
+sortAddressBookByName("city")
+console.log("UC11 : sorted address book by person's state:")
+sortAddressBookByName("state")
+console.log("UC11 : sorted address book by person's zip:")
+sortAddressBookByName("zip")
+
