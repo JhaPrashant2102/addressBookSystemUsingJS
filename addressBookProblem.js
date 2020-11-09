@@ -107,10 +107,27 @@ addressBook.find(searchForContact).firstName = "Bill"
 console.log(addressBook)
 //UC5
 addressBook.pop(addressBook.find(searchForContact))
-console.log(addressBook)
+console.log("UC5:\n"+addressBook)
 //UC6
 addressBook.push(contact1)
 function totalContacts(totalContacts){
     return ++totalContacts
 }
 console.log("UC6 total number of contacts in address book:"+addressBook.reduce(totalContacts,0))
+//UC7
+function addContact(contact){
+    let newContact = addressBook.find(searchContact=>searchContact.fullName==contact.fullName)
+    if(newContact==undefined){
+        addressBook.push(contact)
+        return true
+    }else{
+        return false;
+    }
+
+}
+addressBook.pop(contact1)
+if(addContact(contact1))
+console.log("UC7: not a duplicate contact:")
+else 
+console.log("UC7 : duplicate contact cannot be entered in address book")
+console.log(addressBook)
