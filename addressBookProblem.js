@@ -91,23 +91,26 @@ class Contact{
     }
 }
 
-let contact1 = new Contact("Billl","Gates","Parkelitevillas","Bangalore","Karnataka","333031","9876504321","bill.gates@microsoft.com")
+let contact1 = new Contact("Bill","Gates","Parkelitevillas","Bangalore","Karnataka","333031","9876504321","bill.gates@microsoft.com")
 let contact2 = new Contact("Jeff","Bezoz","Parkelitefloors","Bangalore","Karnataka","333031","9876504321","jeff.bezoz@microsoft.com")
 
 //UC3
 let addressBook = new Array();
 addressBook.push(contact1)
 addressBook.push(contact2)
-console.log(addressBook)
+console.log("UC3"+addressBook)
 //UC4
 function searchForContact(contact){
-    return contact.firstName.includes("Billl")
+    if(contact.firstName.includes("Bill"))
+    return contact
+    else
+    return undefined
 }
 addressBook.find(searchForContact).firstName = "Bill"
 console.log(addressBook)
 //UC5
 addressBook.pop(addressBook.find(searchForContact))
-console.log("UC5:\n"+addressBook)
+console.log("UC5:"+addressBook)
 //UC6
 addressBook.push(contact1)
 function totalContacts(totalContacts){
@@ -125,9 +128,13 @@ function addContact(contact){
     }
 
 }
-addressBook.pop(contact1)
 if(addContact(contact1))
 console.log("UC7: not a duplicate contact:")
 else 
 console.log("UC7 : duplicate contact cannot be entered in address book")
 console.log(addressBook)
+//UC8
+function searchPerson(firstName,city){
+    return ((addressBook.find(contact=>contact.firstName==firstName&&contact.city==city))!=undefined)?true:false
+}
+console.log("UC8: does bill stays in bangalore?: "+searchPerson("Bill","Bangalore"))
